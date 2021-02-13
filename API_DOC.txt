@@ -1,0 +1,51 @@
+Ogni richiesta all'API va autenticata aggiungendo agli headers:
+    'Authorization: Bearer BEARER_TOKEN'
+
+##PRENDERE STREAM DI TWEET CASUALI IN TEMPO REALE##
+https://developer.twitter.com/en/docs/twitter-api/tweets/sampled-stream/introduction
+
+GET https://api.twitter.com/2/tweets/sample/stream
+
+Il tipo di risposta fornito dall'API e' uno stream di dati (no idea di come gestirlo con XMLHttpRequest, uso altro), ogni chunk dello stream corrisponde ad un tweet ricevuto.
+##
+
+##PRENDERE STREAM DI TWEET FILTRATI IN TEMPO REALE##
+https://developer.twitter.com/en/docs/twitter-api/tweets/filtered-stream/introduction
+
+Procedimento diviso in piu' e diverse chiamate all'API.
+
+Prima di tutto si aggiunge una regola chiamando
+    POST https://api.twitter.com/2/tweets/search/stream/rules
+e mandando un JSON nel formato:
+    {
+        'add':
+            [
+                {
+                    'value': espressione,
+                    'tag': nome_associato
+                }
+            ]
+    }
+dove espressione e' una stringa generata con la sintassi descritta > https://developer.twitter.com/en/docs/twitter-api/tweets/filtered-stream/integrate/build-a-rule
+e nome_associato e' un nome arbitratio da dare alla regola inserita.
+Si possono inserire anche piu' regole.
+
+Per cancellare una regola si chiama sempre
+    POST https://api.twitter.com/2/tweets/search/stream/rules
+ma stavolta con un JSON nel formato:
+    {
+        'delete':
+            [
+                {
+                    'ids': lista_id
+                }
+            ]
+    }
+dove lista id e' una lista nel formato [id1, id2...], dove ogni id corrisponde ad una regola inserita.
+Per vedere le regole inserite si chiama
+    POST https://api.twitter.com/2/tweets/search/stream/rules
+
+Una volta inserite le regole si chiama
+    GET https://api.twitter.com/2/tweets/search/stream
+e si ottiene uno stream come nel caso dei tweet non filtrati, ma in cui vengono presi solo tweet che rispettano le regole date con associati la tag della regola che rispettano.
+##

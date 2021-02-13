@@ -1,0 +1,46 @@
+.clickable:hover{
+	background-color:  slategrey !important;
+	color: white;
+	cursor: pointer;
+}
+
+.dropdown-menu div{
+	margin: 1em;
+}
+
+hr{
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+	border: 0;
+	border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+table {
+	display: flex;
+    flex-flow: column;
+    width: 100%;
+}
+
+thead {
+	flex: 0 0 auto;
+}
+
+tbody {
+	height: 650px;
+    flex: 1 1 auto;
+    display: block;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+tr {
+    width: 100%;
+    display: table;
+    table-layout: fixed;
+}
+
+th { 
+	position: sticky; 
+	top: 0; 
+	cursor: pointer;
+}

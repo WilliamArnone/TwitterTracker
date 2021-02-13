@@ -1,0 +1,41 @@
+{
+  "name": "twitter_analytics",
+  "version": "1.0.0",
+  "description": "Progetto Ingegneria Del software 2020/2021",
+  "main": "Server.js",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.12.1",
+    "axios": "^0.21.0",
+    "babel-plugin-rewire": "^1.2.0",
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "fs": "^0.0.1-security",
+    "https": "^1.0.0",
+    "jQuery": "^1.7.4",
+    "jest": "^26.6.3",
+    "jquery": "^3.5.1",
+    "jsdom": "^16.4.0",
+    "rewire": "^5.0.0",
+    "twitter-lite": "^0.14.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.12.8",
+    "@babel/core": "^7.12.9",
+    "@babel/preset-env": "^7.12.7"
+  },
+  "scripts": {
+    "start": "node ./Server.js",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://aminsep.disi.unibo.it/gitlab/fede/twitter_analytics.git"
+  },
+  "author": "Group 16",
+  "license": "ISC"
+}
